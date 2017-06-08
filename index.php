@@ -19,3 +19,11 @@ $share->calculateShare(2,100);
  */
 
 $share->addReferals([1,5]);
+
+/*
+ * Get the total referal amount of each user
+ * params $userId  userId of the registerd user
+ * Returns total amount
+ */
+
+$amount = $share->getAmount(1);

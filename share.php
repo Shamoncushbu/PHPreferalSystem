@@ -41,7 +41,18 @@ class Share {
 
      echo ($result->rowCount())?'Referal added':'An error occured';
 
+ }
+ public function getAmount($userId)
+ {
+     $result=$this->db->prepare("SELECT SUM(`amount`) as total FROM amount WHERE user_id=?");
+     $result->execute(array($userId));
 
+     if($result->rowCount()) {
+         $data = $result->fetch(PDO::FETCH_OBJ);
+         return $data->total;
+     }else{
+         return 0;
+     }
  }
 }
 
